@@ -1,5 +1,7 @@
 import uuid
 import os
+from typing import Sequence, Dict
+
 import numpy as np
 
 
@@ -19,3 +21,8 @@ def persist(buffer, base_path, data_dir=None):
 def _chunkfy(date, size):
     for i in range(0, len(date), size):
         yield date[i:i+size]
+
+
+# TODO: Implementar calculo do estado
+def vectorize_state(batch: Sequence[Dict]) -> Sequence[float]:
+    return [1.0, 2.0, 3.0]
