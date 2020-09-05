@@ -1,4 +1,3 @@
-from time import sleep
 import random
 from flask import Blueprint
 from flask import request
@@ -7,7 +6,7 @@ from flask import request
 DIRECTIONS_TO_CHOOSE = ["Up", "Down", None]
 
 
-def create_replay_buffer():
+def create_replay_buffer(model):
     blueprint = Blueprint("replay_buffer", __name__)
 
     @blueprint.route("/", methods=["POST"])
