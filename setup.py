@@ -14,6 +14,7 @@ setup(
         "flask==1.1.2",
         "click==7.1.2",
         "tensorflow==2.3.0",
-        "click==7.1.2"
+        "click==7.1.2",
+        "tf-agents==0.6.0"
     ]
 )

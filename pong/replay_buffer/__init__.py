@@ -24,5 +24,17 @@ def _chunkfy(date, size):
 
 
 # TODO: Implementar calculo do estado
-def vectorize_state(batch: Sequence[Dict]) -> Sequence[float]:
+def split_state(state: Dict) -> Sequence[float]:
+    player1 = state["player1"]
+    player1_ball = state["ball1"]
+    player1_vel = state["ball1_velocity"]
+    action1 = state["action1"]
+
+    player2 = state["player2"]
+    player2_ball = state["ball2"]
+    player2_vel = state["ball2_velocity"]
+    action2 = state["action2"]
+
+    score
+
     return [1.0, 2.0, 3.0]

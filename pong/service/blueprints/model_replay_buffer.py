@@ -1,9 +1,8 @@
-import random
 from flask import Blueprint
 from flask import request
 
-from pong.ia.model.utils import choose_direction
-from pong.replay_buffer import vectorize_state
+from pong.ia.utils import choose_direction
+from pong.replay_buffer import split_state
 
 
 def create_replay_buffer(model):
@@ -11,7 +10,7 @@ def create_replay_buffer(model):
 
     @blueprint.route("/", methods=["POST"])
     def create_line():
-        line = vectorize_state(request.json)
+        line = split_state(request.json)
 
         actions = model(line)
         direction = choose_direction(actions)
@@ -19,7 +18,7 @@ def create_replay_buffer(model):
 
     @blueprint.route("/finish", methods=["POST"])
     def finish():
-        line = vectorize_state(request.json)
+        line = split_state(request.json)
         print(line)
         return dict(), 200
 
