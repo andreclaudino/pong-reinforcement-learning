@@ -140,3 +140,11 @@ cython_debug/
 .idea/
 
 replay_buffer/
+
+saida/
+
+saida.3/
+
+saida.4/
+
+saida.5/

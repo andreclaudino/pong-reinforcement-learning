@@ -14,13 +14,19 @@ def create_mailboxed_controller(service_mailbox: Queue, agent_mailbox: Queue):
     def create_line():
         observable = request.json["observation"]
         reward = request.json["score"]
-
         direction = blueprint.ask(observable, reward)
+
+        print("act", observable, reward, direction)
+
         return dict(action=direction), 200
 
     @blueprint.route("/finish", methods=["POST"])
     def finish():
-        print(request.json)
-        return dict(), 200
+        observable = request.json["observation"]
+        reward = request.json["score"]
+        direction = blueprint.finish(observable, reward)
+
+        print("finish", observable, reward, direction)
+        return dict(action=direction), 200
 
     return blueprint

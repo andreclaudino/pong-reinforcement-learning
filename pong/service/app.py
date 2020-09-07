@@ -1,6 +1,7 @@
 from multiprocessing import Queue
 
 from flask import Flask
+import logging
 
 from pong.service.blueprints import create_mailboxed_controller
 from pong.service.blueprints import create_random_controller
@@ -8,6 +9,7 @@ from pong.service.blueprints import create_random_controller
 
 def create_app(agent_mailbox: Queue, service_mailbox: Queue):
     app = Flask(__name__)
+    logging.basicConfig(level=logging.ERROR)
 
     random_environment_controller = create_random_controller()
     app.register_blueprint(random_environment_controller, url_prefix="/random/play")

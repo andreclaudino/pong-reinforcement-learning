@@ -22,9 +22,14 @@ class Observable:
 
 class Action:
 
-    def __init__(self, value: int):
+    def __init__(self, value: int, phase):
         self._value = value
+        self._phase = phase
 
     @property
     def value(self):
         return self._value
+
+    @property
+    def phase(self):
+        return self._phase
