@@ -1,0 +1,2 @@
+DIRECTIONS_TO_CHOOSE = [None, "Up", "Down"]
+START_MESSAGE = "START"

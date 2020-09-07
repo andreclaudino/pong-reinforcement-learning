@@ -1,0 +1,20 @@
+###
+POST http://0.0.0.0:8080/agent/play/act HTTP/1.1
+Content-Type: application/json
+
+{
+   "observation":[
+      0.41333333,
+      0.41333333,
+      0.2607485,
+      0.48166665,
+      -5.1000004,
+      0.0
+   ],
+   "action":[
+      0.0,
+      0.0,
+      1.0
+   ],
+   "score":0.1
+}

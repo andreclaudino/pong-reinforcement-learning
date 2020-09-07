@@ -9,12 +9,11 @@ setup(
     author='Time IA-FRONT',
     author_email='',
     description='',
-    install_requires = [
-        "FLASK-JSON==0.3.4",
+    install_requires=[
         "flask==1.1.2",
         "click==7.1.2",
-        "tensorflow==2.3.0",
-        "click==7.1.2",
-        "tf-agents==0.6.0"
+        "tensorflow==2.2.0",
+        "tf-agents==0.3.0",
+        "tensorflow-probability==0.9.0",
     ]
 )
