@@ -21,7 +21,8 @@ REPLAY_BUFFER_BATCH_SIZE = 32
 @click.option("--max-buffer-lenght", type=int, default=500)
 @click.option("--discount-factor", type=float, default=0.9)
 @click.option("--num-episodes", type=int, default=10)
-@click.option("--save-path", type=click.Path(file_okay=False, dir_okay=True, writable=True, allow_dash=True), default="output")
+@click.option("--save-path", type=click.Path(file_okay=False, dir_okay=True,
+                                             writable=True, allow_dash=True), default="output")
 @click.option("--validate-step", type=int, default=10)
 @click.option("--randomize-step", type=int, default=10)
 def main(host: str, port: int, dense_layers_sizes: str, learning_rate: float, max_buffer_lenght,
@@ -39,12 +40,14 @@ def main(host: str, port: int, dense_layers_sizes: str, learning_rate: float, ma
         replay_buffer = create_replay_buffer(agent, pong_environment, max_buffer_lenght)
         train(agent, pong_environment, replay_buffer, num_episodes, REPLAY_BUFFER_BATCH_SIZE, save_path,
               randomize_step, validate_step)
-    training_process = Process(target=training_process_function, args=(agent_mailbox_common, service_mailbox_common))
+    training_process = Process(target=training_process_function,
+                               args=(agent_mailbox_common, service_mailbox_common))
 
     def server_process_function(agent_mailbox, service_mailbox):
         app = create_app(agent_mailbox, service_mailbox)
         app.run(host=host, port=port, threaded=False)
-    server_process = Process(target=server_process_function, args=(agent_mailbox_common, service_mailbox_common))
+    server_process = Process(target=server_process_function,
+                             args=(agent_mailbox_common, service_mailbox_common))
 
     server_process.start()
     sleep(1)
